@@ -1,8 +1,9 @@
-from django.urls import path
-from .views import persons_list
-from .views import persons_new
+from django.forms import ModelForm
+from .models import Person
 
-urlpatterns = [
-    path('list/', persons_list, name='persons_list'),
-    path('new/', persons_new, name='persons_new'),
-]
+class PersonForm(ModelForm):
+	class Meta:
+		model = Person
+		fields = ['first_name', 'last_name', 'age', 'salario', 'bio', 'photo']
+
+
